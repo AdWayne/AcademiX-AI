@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademiX AI — Ваш научный ассистент</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="flex justify-between items-center px-10 py-6 bg-white shadow-sm sticky top-0 z-50">
+        <div class="text-2xl font-bold text-indigo-600 italic">AcademiX <span class="text-slate-800 underline decoration-indigo-500">AI</span></div>
+        <div class="space-x-8 font-medium">
+            <a href="#features" class="hover:text-indigo-600 transition">Возможности</a>
+            <a href="#demo" class="hover:text-indigo-600 transition">Демо-чат</a>
+            <button class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">Вход</button>
+        </div>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Интеллектуальная подготовка <br>
+            <span class="text-indigo-600">научных материалов</span>
+        </h1>
+        <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+            От генерации гипотез до оформления библиографии по ГОСТу. Работайте с данными, а не с форматированием.
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="#demo" class="bg-slate-900 text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition">Начать исследование</a>
+            <button class="border-2 border-slate-200 px-8 py-4 rounded-lg font-bold hover:bg-slate-100 transition">Узнать больше</button>
+        </div>
+    </header>
+
+    <section id="demo" class="max-w-5xl mx-auto px-6 mb-24">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
+            <div class="bg-slate-900 p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-mono">Academic_Core_v1.0.exe</span>
+                </div>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+            
+            <div class="h-[400px] p-6 overflow-y-auto bg-slate-50 flex flex-col gap-4" id="chat-box">
+                <div class="flex gap-3 max-w-[80%]">
+                    <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white shrink-0">
+                        <i class="fas fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 text-sm">
+                        Здравствуйте! Я готов помочь с вашим исследованием. Загрузите черновик или введите тему работы.
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-200 bg-white">
+                <div class="flex gap-4">
+                    <label class="cursor-pointer bg-slate-100 p-3 rounded-lg hover:bg-slate-200 transition">
+                        <i class="fas fa-paperclip text-slate-500"></i>
+                        <input type="file" id="file-input" class="hidden" accept=".pdf">
+                    </label>
+                    <input type="text" id="user-input" placeholder="Введите тему или загрузите PDF..." 
+                           class="w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg border border-slate-200">
+                    <button onclick="sendMessage()" class="bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div id="file-name" class="text-xs text-indigo-600 mt-2 px-14"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="bg-indigo-50 py-20 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-microscope"></i></div>
+                <h3 class="text-xl font-bold mb-2">Глубокий анализ</h3>
+                <p class="text-slate-600">ИИ анализирует сотни публикаций в репозиториях и находит слепые зоны в вашей теме.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-quote-right"></i></div>
+                <h3 class="text-xl font-bold mb-2">Умные ссылки</h3>
+                <p class="text-slate-600">Автоматическая генерация сносок и списка литературы по стандартам ВАК и Scopus.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <div class="text-indigo-600 text-3xl mb-4"><i class="fas fa-shield-halved"></i></div>
+                <h3 class="text-xl font-bold mb-2">Проверка логики</h3>
+                <p class="text-slate-600">Детектор противоречий: ИИ укажет, если выводы не соответствуют методологии.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-slate-400 text-sm">
+        &copy; 2026 AcademiX AI. Разработано для будущих ученых.
+    </footer>
+
+<script>
+    const fileInput = document.getElementById('file-input');
+    const userInput = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+
+    fileInput.onchange = () => {
+        document.getElementById('file-name').innerText = fileInput.files[0] ? "Выбран файл: " + fileInput.files[0].name : "";
+    };
+
+    async function sendMessage() {
+        const text = userInput.value;
+        const file = fileInput.files[0];
+        if (!text && !file) return;
+
+        const userMsg = text || `Файл: ${file.name}`;
+        chatBox.innerHTML += `<div class="text-right text-sm bg-indigo-100 p-3 rounded-lg ml-auto max-w-[80%] mb-4">${userMsg}</div>`;
+        
+        userInput.value = "";
+        fileInput.value = "";
+        document.getElementById('file-name').innerText = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        const formData = new FormData();
+        if (text) formData.append('text', text);
+        if (file) formData.append('file', file);
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/chat', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            
+            chatBox.innerHTML += `
+                <div class="flex gap-3 max-w-[80%] mb-4">
+                    <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white shrink-0">
+                        <i class="fas fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 text-sm whitespace-pre-wrap">${data.reply}</div>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (err) {
+            alert("Ошибка: Сервер не запущен. Запустите server.py");
+        }
+    }
+</script>
+</body>
+</html>
